@@ -1,0 +1,14 @@
+[workspace]
+
+members = [
+    "drv_isa_sim",
+    "cli"
+]
+
+default-members = ["cli"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["Philipp Schilk"]
+
