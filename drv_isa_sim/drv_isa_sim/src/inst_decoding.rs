@@ -461,7 +461,7 @@ mod tests {
         for (binary, orig) in input {
             println!("Decoding 0x{binary:x} (objdump_output)");
             let inst = decode_inst(binary).unwrap();
-            let inst = format!("{:?}", inst).to_lowercase();
+            let inst = format!("{:}", inst).to_lowercase();
             let orig = orig.to_lowercase();
             assert_eq!(inst, orig);
         }

@@ -1,0 +1,26 @@
+---
+source: drv_isa_sim/tests/simple_program_execution.rs
+expression: log
+---
+[
+    "0x01000000: [  ]            lui X1, 0x2000 | Commited: [X1 = 0x02000000]",
+    "0x01000004: [  ]           lui X2, 0xdeadc | Commited: [X2 = 0xdeadc000]",
+    "0x01000008: [  ]   addi X2, X2, 0xfffffeef | Input: [X2 = 0xdeadc000] Commited: [X2 = 0xdeadbeef]",
+    "0x0100000c: [  ]            sw X2, 0x0(X1) | Input: [X1 = 0x02000000, X2 = 0xdeadbeef] Commited: [mem[0x02000000] = 0xdeadbeef]",
+    "0x01000010: [  ]           lui X2, 0xf1bef | Commited: [X2 = 0xf1bef000]",
+    "0x01000014: [  ]        addi X2, X2, 0x1be | Input: [X2 = 0xf1bef000] Commited: [X2 = 0xf1bef1be]",
+    "0x01000018: [  ]            sw X2, 0x4(X1) | Input: [X1 = 0x02000000, X2 = 0xf1bef1be] Commited: [mem[0x02000004] = 0xf1bef1be]",
+    "0x0100001c: [  ]            lw X2, 0x0(X1) | Input: [X1 = 0x02000000, mem[0x02000000] = 0xdeadbeef] Commited: [X2 = 0xdeadbeef]",
+    "0x01000020: [  ]           lbu X3, 0x4(X1) | Input: [X1 = 0x02000000, mem[0x2000004] = 0x000000be] Commited: [X3 = 0x000000be]",
+    "0x01000024: [  ]           lbu X4, 0x5(X1) | Input: [X1 = 0x02000000, mem[0x2000005] = 0x000000f1] Commited: [X4 = 0x000000f1]",
+    "0x01000028: [  ]          slli X4, X4, 0x8 | Input: [X4 = 0x000000f1] Commited: [X4 = 0x0000f100]",
+    "0x0100002c: [  ]             or X3, X3, X4 | Input: [X3 = 0x000000be, X4 = 0x0000f100] Commited: [X3 = 0x0000f1be]",
+    "0x01000030: [  ]           lbu X4, 0x6(X1) | Input: [X1 = 0x02000000, mem[0x2000006] = 0x000000be] Commited: [X4 = 0x000000be]",
+    "0x01000034: [  ]         slli X4, X4, 0x10 | Input: [X4 = 0x000000be] Commited: [X4 = 0x00be0000]",
+    "0x01000038: [  ]             or X3, X3, X4 | Input: [X3 = 0x0000f1be, X4 = 0x00be0000] Commited: [X3 = 0x00bef1be]",
+    "0x0100003c: [  ]           lbu X4, 0x7(X1) | Input: [X1 = 0x02000000, mem[0x2000007] = 0x000000f1] Commited: [X4 = 0x000000f1]",
+    "0x01000040: [  ]         slli X4, X4, 0x18 | Input: [X4 = 0x000000f1] Commited: [X4 = 0xf1000000]",
+    "0x01000044: [  ]             or X3, X3, X4 | Input: [X3 = 0x00bef1be, X4 = 0xf1000000] Commited: [X3 = 0xf1bef1be]",
+    "0x01000048: [  ]             jal X0, .+0x0 | Branching: 0x01000048 Commited: [X0 = 0x0100004c]",
+    "0x01000048: [  ]             jal X0, .+0x0 | Branching: 0x01000048 Commited: [X0 = 0x0100004c]",
+]

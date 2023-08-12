@@ -1,0 +1,21 @@
+---
+source: drv_isa_sim/tests/simple_program_execution.rs
+expression: log
+---
+[
+    "0x01000000: [  ]        addi X1, X0, 0x100 | Input: [X0 = 0x00000000] Commited: [X1 = 0x00000100]",
+    "0x01000004: [  ]            jal X2, .+0x14 | Branching: 0x01000018 Commited: [X2 = 0x01000008]",
+    "0x01000018: [  ]         addi X1, X1, 0x10 | Input: [X1 = 0x00000100] Commited: [X1 = 0x00000110]",
+    "0x0100001c: [  ]          jalr X0, 0x0(X2) | Branching: 0x01000008 Input: [X2 = 0x01000008] Commited: [X0 = 0x01000020]",
+    "0x01000008: [  ]            jal X2, .+0x10 | Branching: 0x01000018 Commited: [X2 = 0x0100000c]",
+    "0x01000018: [  ]         addi X1, X1, 0x10 | Input: [X1 = 0x00000110] Commited: [X1 = 0x00000120]",
+    "0x0100001c: [  ]          jalr X0, 0x0(X2) | Branching: 0x0100000c Input: [X2 = 0x0100000c] Commited: [X0 = 0x01000020]",
+    "0x0100000c: [  ]             jal X2, .+0xc | Branching: 0x01000018 Commited: [X2 = 0x01000010]",
+    "0x01000018: [  ]         addi X1, X1, 0x10 | Input: [X1 = 0x00000120] Commited: [X1 = 0x00000130]",
+    "0x0100001c: [  ]          jalr X0, 0x0(X2) | Branching: 0x01000010 Input: [X2 = 0x01000010] Commited: [X0 = 0x01000020]",
+    "0x01000010: [  ]             jal X2, .+0x8 | Branching: 0x01000018 Commited: [X2 = 0x01000014]",
+    "0x01000018: [  ]         addi X1, X1, 0x10 | Input: [X1 = 0x00000130] Commited: [X1 = 0x00000140]",
+    "0x0100001c: [  ]          jalr X0, 0x0(X2) | Branching: 0x01000014 Input: [X2 = 0x01000014] Commited: [X0 = 0x01000020]",
+    "0x01000014: [  ]             jal X0, .+0x0 | Branching: 0x01000014 Commited: [X0 = 0x01000018]",
+    "0x01000014: [  ]             jal X0, .+0x0 | Branching: 0x01000014 Commited: [X0 = 0x01000018]",
+]

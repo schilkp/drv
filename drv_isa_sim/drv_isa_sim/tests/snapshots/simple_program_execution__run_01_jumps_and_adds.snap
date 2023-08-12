@@ -1,0 +1,15 @@
+---
+source: drv_isa_sim/tests/simple_program_execution.rs
+expression: log
+---
+[
+    "0x01000000: [  ]            jal X0, .+0x1c | Branching: 0x0100001c Commited: [X0 = 0x01000004]",
+    "0x0100001c: [  ]      jal X0, .+0xfffffffc | Branching: 0x01000018 Commited: [X0 = 0x01000020]",
+    "0x01000018: [  ]      jal X0, .+0xffffffec | Branching: 0x01000004 Commited: [X0 = 0x0100001c]",
+    "0x01000004: [  ]           lui X1, 0x10000 | Commited: [X1 = 0x10000000]",
+    "0x01000008: [  ]          addi X2, X0, 0x2 | Input: [X0 = 0x00000000] Commited: [X2 = 0x00000002]",
+    "0x0100000c: [  ]            add X3, X1, X2 | Input: [X1 = 0x10000000, X2 = 0x00000002] Commited: [X3 = 0x10000002]",
+    "0x01000010: [  ]         andi X3, X3, 0xff | Input: [X3 = 0x10000002] Commited: [X3 = 0x00000002]",
+    "0x01000014: [  ]             jal X0, .+0xc | Branching: 0x01000020 Commited: [X0 = 0x01000018]",
+    "0x01000020: [  ]             jal X0, .+0x0 | Branching: 0x01000020 Commited: [X0 = 0x01000024]",
+]

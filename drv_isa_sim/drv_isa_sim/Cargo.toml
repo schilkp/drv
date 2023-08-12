@@ -12,3 +12,5 @@ elf = "0.7.2"
 rand = "0.8.5"
 
 [dev-dependencies]
+insta = "1.31.0"
+

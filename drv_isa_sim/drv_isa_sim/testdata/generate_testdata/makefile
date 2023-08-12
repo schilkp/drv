@@ -4,8 +4,11 @@ mkfile_location_abs := $(abspath $(dir))
 
 RISCV_UNKNOWN_ELF_PREFIX=riscv64-unknown-elf
 
-ASM_PROGRAMS = 00_all_instructions.s
-ASM_PROGRAMS+= 01_scratch.s
+ASM_PROGRAMS =00_all_instructions.s
+ASM_PROGRAMS+=01_jumps_and_adds.s
+ASM_PROGRAMS+=02_mem_access.s
+ASM_PROGRAMS+=03_branching.s
+ASM_PROGRAMS+=04_call_return.s
 
 ELFS = $(addprefix $(mkfile_location_abs)/../, $(ASM_PROGRAMS:.s=.elf))
 

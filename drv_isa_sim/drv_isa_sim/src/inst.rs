@@ -22,7 +22,7 @@ pub enum Register {
     Xdpc, // Non-standard DRV extension
 }
 
-#[derive(PartialEq, Clone, Copy)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 #[allow(clippy::upper_case_acronyms)]
 pub enum Instruction {
     // RV32I:
@@ -222,7 +222,7 @@ pub enum Instruction {
 
 // ==== Instruction-to-String formatting ===========================================================
 
-impl std::fmt::Debug for Instruction {
+impl std::fmt::Display for Instruction {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Instruction::LUI { imm, rd } => write!(f, "lui {rd:?}, 0x{:x}", imm >> 12),

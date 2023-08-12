@@ -8,9 +8,9 @@ impl DRVSim {
         let inst = self.read_w(self.pc)?.val;
         let inst = decode_inst(inst)?;
 
-        // Track of the instruction branched and already updated the program counter,
+        // Track if the instruction branched and provides the next PC value,
         // or if the program counter needs to be incremented to the next instruction:
-        let mut did_branch = false;
+        let mut branching = None;
 
         // Keep track of details for logging:
         let log_pc = self.pc;
@@ -44,8 +44,7 @@ impl DRVSim {
                 // in rd.
                 let pc = self.pc;
 
-                did_branch = true;
-                self.pc = u32::wrapping_add(pc, imm);
+                branching = Some(u32::wrapping_add(pc, imm));
 
                 let next_inst = u32::wrapping_add(pc, 4);
                 log_commit_values.push(self.write_register(rd, next_inst));
@@ -60,8 +59,7 @@ impl DRVSim {
 
                 let inp_rs1 = self.read_register(rs1)?;
                 log_input_values.push(inp_rs1);
-                did_branch = true;
-                self.pc = u32::wrapping_add(inp_rs1.val, imm) & (!0x1);
+                branching = Some(u32::wrapping_add(inp_rs1.val, imm) & (!0x1));
 
                 let next_inst = u32::wrapping_add(pc, 4);
                 log_commit_values.push(self.write_register(rd, next_inst));
@@ -78,8 +76,7 @@ impl DRVSim {
                 log_input_values.push(inp_rs2);
 
                 if inp_rs1.val == inp_rs2.val {
-                    did_branch = true;
-                    self.pc = u32::wrapping_add(self.pc, imm);
+                    branching = Some(u32::wrapping_add(self.pc, imm));
                 }
             }
 
@@ -94,8 +91,7 @@ impl DRVSim {
                 log_input_values.push(inp_rs2);
 
                 if inp_rs1.val != inp_rs2.val {
-                    did_branch = true;
-                    self.pc = u32::wrapping_add(self.pc, imm);
+                    branching = Some(u32::wrapping_add(self.pc, imm));
                 }
             }
 
@@ -110,8 +106,7 @@ impl DRVSim {
                 log_input_values.push(inp_rs2);
 
                 if (inp_rs1.val as i32) < (inp_rs2.val as i32) {
-                    did_branch = true;
-                    self.pc = u32::wrapping_add(self.pc, imm);
+                    branching = Some(u32::wrapping_add(self.pc, imm));
                 }
             }
 
@@ -126,8 +121,7 @@ impl DRVSim {
                 log_input_values.push(inp_rs2);
 
                 if (inp_rs1.val as i32) >= (inp_rs2.val as i32) {
-                    did_branch = true;
-                    self.pc = u32::wrapping_add(self.pc, imm);
+                    branching = Some(u32::wrapping_add(self.pc, imm));
                 }
             }
 
@@ -142,8 +136,7 @@ impl DRVSim {
                 log_input_values.push(inp_rs2);
 
                 if inp_rs1.val < inp_rs2.val {
-                    did_branch = true;
-                    self.pc = u32::wrapping_add(self.pc, imm);
+                    branching = Some(u32::wrapping_add(self.pc, imm));
                 }
             }
 
@@ -158,8 +151,7 @@ impl DRVSim {
                 log_input_values.push(inp_rs2);
 
                 if inp_rs1.val >= inp_rs2.val {
-                    did_branch = true;
-                    self.pc = u32::wrapping_add(self.pc, imm);
+                    branching = Some(u32::wrapping_add(self.pc, imm));
                 }
             }
 
@@ -523,15 +515,17 @@ impl DRVSim {
             Instruction::MRET => todo!(),
         };
 
-        if !did_branch {
+        if let Some(destination) = branching {
+            self.pc = destination;
+        } else {
             self.pc = u32::wrapping_add(self.pc, 4);
         }
 
         Ok(InstLog {
             pc: log_pc,
             inst,
+            branching,
             handling_trap: log_handling_trap,
-            branching: did_branch,
             debug_mode: log_debug_mode,
             input_values: log_input_values,
             commit_values: log_commit_values,

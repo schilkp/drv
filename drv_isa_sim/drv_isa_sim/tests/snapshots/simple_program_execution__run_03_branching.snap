@@ -1,0 +1,30 @@
+---
+source: drv_isa_sim/tests/simple_program_execution.rs
+expression: log
+---
+[
+    "0x01000000: [  ]         addi X1, X0, 0x80 | Input: [X0 = 0x00000000] Commited: [X1 = 0x00000080]",
+    "0x01000004: [  ]          addi X2, X0, 0x1 | Input: [X0 = 0x00000000] Commited: [X2 = 0x00000001]",
+    "0x01000008: [  ]          slli X2, X2, 0x1 | Input: [X2 = 0x00000001] Commited: [X2 = 0x00000002]",
+    "0x0100000c: [  ]         beq X1, X2, .+0x8 | Input: [X1 = 0x00000080, X2 = 0x00000002]",
+    "0x01000010: [  ]      jal X0, .+0xfffffff8 | Branching: 0x01000008 Commited: [X0 = 0x01000014]",
+    "0x01000008: [  ]          slli X2, X2, 0x1 | Input: [X2 = 0x00000002] Commited: [X2 = 0x00000004]",
+    "0x0100000c: [  ]         beq X1, X2, .+0x8 | Input: [X1 = 0x00000080, X2 = 0x00000004]",
+    "0x01000010: [  ]      jal X0, .+0xfffffff8 | Branching: 0x01000008 Commited: [X0 = 0x01000014]",
+    "0x01000008: [  ]          slli X2, X2, 0x1 | Input: [X2 = 0x00000004] Commited: [X2 = 0x00000008]",
+    "0x0100000c: [  ]         beq X1, X2, .+0x8 | Input: [X1 = 0x00000080, X2 = 0x00000008]",
+    "0x01000010: [  ]      jal X0, .+0xfffffff8 | Branching: 0x01000008 Commited: [X0 = 0x01000014]",
+    "0x01000008: [  ]          slli X2, X2, 0x1 | Input: [X2 = 0x00000008] Commited: [X2 = 0x00000010]",
+    "0x0100000c: [  ]         beq X1, X2, .+0x8 | Input: [X1 = 0x00000080, X2 = 0x00000010]",
+    "0x01000010: [  ]      jal X0, .+0xfffffff8 | Branching: 0x01000008 Commited: [X0 = 0x01000014]",
+    "0x01000008: [  ]          slli X2, X2, 0x1 | Input: [X2 = 0x00000010] Commited: [X2 = 0x00000020]",
+    "0x0100000c: [  ]         beq X1, X2, .+0x8 | Input: [X1 = 0x00000080, X2 = 0x00000020]",
+    "0x01000010: [  ]      jal X0, .+0xfffffff8 | Branching: 0x01000008 Commited: [X0 = 0x01000014]",
+    "0x01000008: [  ]          slli X2, X2, 0x1 | Input: [X2 = 0x00000020] Commited: [X2 = 0x00000040]",
+    "0x0100000c: [  ]         beq X1, X2, .+0x8 | Input: [X1 = 0x00000080, X2 = 0x00000040]",
+    "0x01000010: [  ]      jal X0, .+0xfffffff8 | Branching: 0x01000008 Commited: [X0 = 0x01000014]",
+    "0x01000008: [  ]          slli X2, X2, 0x1 | Input: [X2 = 0x00000040] Commited: [X2 = 0x00000080]",
+    "0x0100000c: [  ]         beq X1, X2, .+0x8 | Branching: 0x01000014 Input: [X1 = 0x00000080, X2 = 0x00000080]",
+    "0x01000014: [  ]             jal X0, .+0x0 | Branching: 0x01000014 Commited: [X0 = 0x01000018]",
+    "0x01000014: [  ]             jal X0, .+0x0 | Branching: 0x01000014 Commited: [X0 = 0x01000018]",
+]
