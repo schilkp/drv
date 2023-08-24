@@ -1,0 +1,189 @@
+[*]
+[*] GTKWave Analyzer v3.3.116 (w)1999-2023 BSI
+[*] Thu Aug 24 07:26:27 2023
+[*]
+[dumpfile] "/home/pschilk/reps/drv/rtl_dv/xbar_tb/build/trace.vcd"
+[dumpfile_mtime] "Thu Aug 24 07:23:40 2023"
+[dumpfile_size] 25583
+[savefile] "/home/pschilk/reps/drv/rtl_dv/xbar_tb/waves/default.gtkw"
+[timestart] 1
+[size] 1920 994
+[pos] -1 -1
+*-4.500000 37 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.
+[treeopen] TOP.xbar_tb.
+[treeopen] TOP.xbar_tb.xbar_top_i.
+[treeopen] TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.
+[sst_width] 445
+[signals_width] 275
+[sst_expanded] 1
+[sst_vpaned_height] 298
+@28
+TOP.clk_i
+TOP.rst_ni
+@22
+TOP.xbar_tb.p1_delay[31:0]
+TOP.xbar_tb.p2_delay[31:0]
+TOP.xbar_tb.p3_delay[31:0]
+TOP.xbar_tb.p4_delay[31:0]
+@200
+-
+@28
+TOP.xbar_tb.xbar_top_i.c1_req_i
+TOP.xbar_tb.xbar_top_i.c2_req_i
+TOP.xbar_tb.xbar_top_i.c3_req_i
+@200
+-
+@28
+TOP.xbar_tb.xbar_top_i.p1_req_o
+TOP.xbar_tb.xbar_top_i.p2_req_o
+TOP.xbar_tb.xbar_top_i.p4_req_o
+TOP.xbar_tb.xbar_top_i.p3_req_o
+@200
+-
+@c00200
+-Controller 1
+@22
+TOP.xbar_tb.xbar_top_i.controller_c1_i.c_addr_i[15:0]
+TOP.xbar_tb.xbar_top_i.controller_c1_i.c_be_i[3:0]
+TOP.xbar_tb.xbar_top_i.controller_c1_i.c_rdata_o[31:0]
+@28
+TOP.xbar_tb.xbar_top_i.controller_c1_i.c_ready_o
+TOP.xbar_tb.xbar_top_i.controller_c1_i.c_req_i
+@22
+TOP.xbar_tb.xbar_top_i.controller_c1_i.c_wdata_i[31:0]
+@28
+TOP.xbar_tb.xbar_top_i.controller_c1_i.c_wen_i
+@22
+TOP.xbar_tb.xbar_top_i.controller_c1_i.p1_rdata_i[31:0]
+TOP.xbar_tb.xbar_top_i.controller_c1_i.p2_rdata_i[31:0]
+TOP.xbar_tb.xbar_top_i.controller_c1_i.p3_rdata_i[31:0]
+TOP.xbar_tb.xbar_top_i.controller_c1_i.p4_rdata_i[31:0]
+TOP.xbar_tb.xbar_top_i.controller_c1_i.p_ready_and_selected_i[3:0]
+TOP.xbar_tb.xbar_top_i.controller_c1_i.port_requested_o[3:0]
+@1401200
+-Controller 1
+@c00200
+-Controller 2
+@22
+TOP.xbar_tb.xbar_top_i.controller_c2_i.c_addr_i[15:0]
+TOP.xbar_tb.xbar_top_i.controller_c2_i.c_be_i[3:0]
+TOP.xbar_tb.xbar_top_i.controller_c2_i.c_rdata_o[31:0]
+@28
+TOP.xbar_tb.xbar_top_i.controller_c2_i.c_ready_o
+TOP.xbar_tb.xbar_top_i.controller_c2_i.c_req_i
+@22
+TOP.xbar_tb.xbar_top_i.controller_c2_i.c_wdata_i[31:0]
+@28
+TOP.xbar_tb.xbar_top_i.controller_c2_i.c_wen_i
+@22
+TOP.xbar_tb.xbar_top_i.controller_c2_i.p1_rdata_i[31:0]
+TOP.xbar_tb.xbar_top_i.controller_c2_i.p2_rdata_i[31:0]
+TOP.xbar_tb.xbar_top_i.controller_c2_i.p3_rdata_i[31:0]
+TOP.xbar_tb.xbar_top_i.controller_c2_i.p4_rdata_i[31:0]
+TOP.xbar_tb.xbar_top_i.controller_c2_i.p_ready_and_selected_i[3:0]
+TOP.xbar_tb.xbar_top_i.controller_c2_i.port_requested_o[3:0]
+@1401200
+-Controller 2
+@c00200
+-Controller 3
+@22
+TOP.xbar_tb.xbar_top_i.controller_c3_i.c_addr_i[15:0]
+TOP.xbar_tb.xbar_top_i.controller_c3_i.c_be_i[3:0]
+TOP.xbar_tb.xbar_top_i.controller_c3_i.c_rdata_o[31:0]
+@28
+TOP.xbar_tb.xbar_top_i.controller_c3_i.c_ready_o
+TOP.xbar_tb.xbar_top_i.controller_c3_i.c_req_i
+@22
+TOP.xbar_tb.xbar_top_i.controller_c3_i.c_wdata_i[31:0]
+@28
+TOP.xbar_tb.xbar_top_i.controller_c3_i.c_wen_i
+@22
+TOP.xbar_tb.xbar_top_i.controller_c3_i.p1_rdata_i[31:0]
+TOP.xbar_tb.xbar_top_i.controller_c3_i.p2_rdata_i[31:0]
+TOP.xbar_tb.xbar_top_i.controller_c3_i.p3_rdata_i[31:0]
+TOP.xbar_tb.xbar_top_i.controller_c3_i.p4_rdata_i[31:0]
+TOP.xbar_tb.xbar_top_i.controller_c3_i.p_ready_and_selected_i[3:0]
+TOP.xbar_tb.xbar_top_i.controller_c3_i.port_requested_o[3:0]
+@1401200
+-Controller 3
+@200
+-
+@c00200
+-Peripheral 1
+@c00022
+TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+@28
+(0)TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+(1)TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+(2)TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+(3)TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+(4)TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+(5)TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+(6)TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+(7)TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+(8)TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+(9)TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+(10)TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+(11)TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+(12)TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+(13)TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_addr_o[13:0]
+@1401200
+-group_end
+@22
+TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_be_o[3:0]
+@28
+TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_ready_i
+TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_req_o
+@22
+TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_wdata_o[31:0]
+@28
+TOP.xbar_tb.xbar_top_i.peripheral_port_p1_i.p_wen_o
+@1401200
+-Peripheral 1
+@c00200
+-Peripheral 2
+@22
+TOP.xbar_tb.xbar_top_i.peripheral_port_p2_i.p_addr_o[13:0]
+TOP.xbar_tb.xbar_top_i.peripheral_port_p2_i.p_be_o[3:0]
+@28
+TOP.xbar_tb.xbar_top_i.peripheral_port_p2_i.p_ready_i
+TOP.xbar_tb.xbar_top_i.peripheral_port_p2_i.p_req_o
+@22
+TOP.xbar_tb.xbar_top_i.peripheral_port_p2_i.p_wdata_o[31:0]
+@28
+TOP.xbar_tb.xbar_top_i.peripheral_port_p2_i.p_wen_o
+@1401200
+-Peripheral 2
+@c00200
+-Peripheral 3
+@22
+TOP.xbar_tb.xbar_top_i.peripheral_port_p3_i.p_addr_o[13:0]
+TOP.xbar_tb.xbar_top_i.peripheral_port_p3_i.p_be_o[3:0]
+@28
+TOP.xbar_tb.xbar_top_i.peripheral_port_p3_i.p_ready_i
+TOP.xbar_tb.xbar_top_i.peripheral_port_p3_i.p_req_o
+@22
+TOP.xbar_tb.xbar_top_i.peripheral_port_p3_i.p_wdata_o[31:0]
+@28
+TOP.xbar_tb.xbar_top_i.peripheral_port_p3_i.p_wen_o
+@1401200
+-Peripheral 3
+@c00200
+-Peripheral 4
+@22
+TOP.xbar_tb.xbar_top_i.peripheral_port_p4_i.p_addr_o[13:0]
+TOP.xbar_tb.xbar_top_i.peripheral_port_p4_i.p_be_o[3:0]
+@28
+TOP.xbar_tb.xbar_top_i.peripheral_port_p4_i.p_ready_i
+TOP.xbar_tb.xbar_top_i.peripheral_port_p4_i.p_req_o
+@22
+TOP.xbar_tb.xbar_top_i.peripheral_port_p4_i.p_wdata_o[31:0]
+@28
+TOP.xbar_tb.xbar_top_i.peripheral_port_p4_i.p_wen_o
+@1401200
+-Peripheral 4
+@200
+-
+[pattern_trace] 1
+[pattern_trace] 0
