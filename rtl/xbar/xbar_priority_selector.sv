@@ -1,6 +1,4 @@
-module xbar_priority_selector #(
-    parameter int unsigned WORD_ADDR_WIDTH
-) (
+module xbar_priority_selector (
     input logic clk_i,
     input logic rst_ni,
 

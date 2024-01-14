@@ -38,9 +38,7 @@ module xbar_peripheral_port #(
   // Rotating priority request selector:
   logic [2:0] selected_request;
 
-  xbar_priority_selector #(
-      .WORD_ADDR_WIDTH(WORD_ADDR_WIDTH)
-  ) priority_selector_i (
+  xbar_priority_selector priority_selector_i (
       .clk_i(clk_i),
       .rst_ni(rst_ni),
       .available_requests_i({c3_matching_req_i, c2_matching_req_i, c1_matching_req_i}),
